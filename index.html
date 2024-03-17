@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario ingreso</title>
+</head>
+<body>
+    <form action="http://localhost:3000/api/usuarios" method="post" style="display: flex; align-items: center; justify-content: center; flex-direction: column; font-size: 20px; font-weight: bold;">
+        <label for="nombre">Nombres</label>
+        <input type="text" name="nombre" id="nombre">
+
+        <label for="apellidos">Apellidos</label>
+        <input type="text" name="apellidos" id="apellidos">
+
+        <label for="correo">Correo</label>
+        <input type="email" name="email" id="correo">
+
+        <label for="ciudad">Ciudad</label>
+        <input type="text" name="ciudad" id="ciudad">
+
+        <label for="pais">Pais</label>
+        <input type="text" name="pais" id="pais">
+        
+        <label for="salario">Salario</label>
+        <input type="number" name="salario" id="salario">
+
+        <label for="empresa">Empresa_id</label>
+        <input type="number" name="empresa_id" id="empresa">
+
+        <input type="submit">
+    </form>
+</body>
+</html>
