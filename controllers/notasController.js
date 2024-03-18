@@ -63,13 +63,41 @@ const userController = {
         }
     },
 
-    // Obtener todas y solamente la nota
     getAllNotes: async (req, res) => {
         try {
             const allNotes = await Estudiantes.find({}, {nota: 1, _id: 0});
             res.json(allNotes);
         } catch (error) {
             console.error('Error al obtener usuarios:', error);
+            res.status(500).json({ message: 'Internal Server Error' });
+        }
+    },
+
+
+
+    updateUser : async (req, res) => {
+        
+        try {
+            const {nombre} = req.params;
+
+            const updateStudent = await Estudiantes.findOneAndUpdate({nombre: nombre}, {$set: {nombre: "Pedro"} }) /*Recibe 2 parametros. 1. El nombre de quien voy a actualizar (recibe la url), 2. el valor que voy a actualizar*/
+
+            res.json(updateStudent)
+        } catch (error) {
+            console.error('Error al actualizar el usuario:', error);
+            res.status(500).json({ message: 'Internal Server Error' });
+        }
+    },
+
+
+
+    deleteUser: async (req, res) => {
+        try {
+            const {nombre} = req.params;;
+            const deletedUser = await Estudiantes.findOneAndDelete({nombre: nombre});
+            res.json(deletedUser);
+        } catch (error) {
+            console.error('Error al actualizar el usuario:', error);
             res.status(500).json({ message: 'Internal Server Error' });
         }
     },
