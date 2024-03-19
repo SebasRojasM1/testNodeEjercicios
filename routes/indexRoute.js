@@ -1,24 +1,45 @@
 const express = require('express');
 const router = express.Router();
-const librosController = require('../controllers/librosController');
+const profesoresController = require('../controllers/profesoresController');
+const studentsController = require('../controllers/studentsController');
 
 
-/* LIBROS */
+
+/* ESTUDIANTE */
 /*Ruta: Llamar a todos los libros (GET), e ingresar nuevos libros (POST) */
-router.get('/api/libros', librosController.getAllUsers);
-router.post('/api/libros/create', librosController.createBook);
+router.get('/api/students', studentsController.getAllStudents);//Llamar a todos los estudiantes
+router.post('/api/students/create', studentsController.createStudent);//Crear estudiante
 
 
-/*Ruta: llamado del usuario por el referencia */
-router.get('/api/libros/referencia/:referencia', librosController.getBookByReference);
+/*Ruta: llamado del usuario por el ID */
+router.get('/api/students/id/:_id', studentsController.getStudentById);
 
 
-/*Ruta: Actualizar el nombre de un libro */
-router.patch('/api/libros/update/:nombre', librosController.updateBook);
+/*Ruta: Actualizar el nombre de un estudiante */
+router.patch('/api/students/update/:nombre', studentsController.updateStudent);
 
-/*Borrar un libro por su nombre */
-router.delete('/api/libros/delete/:nombre', librosController.deleteBook);
+/*Borrar un estudiante por su nombre */
+router.delete('/api/students/delete/:nombre', studentsController.deleteStudent);
 
+
+
+
+
+
+/*PROFESORES*/
+router.get('/api/profesores', profesoresController.getAllTeachers);//Llamar a todos los profesores
+router.post('/api/profesores/create', profesoresController.createTeacher); //Crear profesor
+
+
+/*Ruta: llamado del usuario por el id */
+router.get('/api/profesores/id/:_id', profesoresController.getTeacherByID);
+
+
+/*Ruta: Actualizar el nombre de un estudiante */
+router.patch('/api/profesores/update/:nombre', profesoresController.updateTeacher);
+
+/*Borrar un estudiante por su nombre */
+router.delete('/api/profesores/delete/:nombre', profesoresController.deleteTeacher);
 
 
 module.exports = router;

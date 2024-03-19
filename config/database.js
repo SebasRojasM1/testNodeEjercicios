@@ -1,10 +1,15 @@
 const mongoose = require("mongoose")
-let Libros
+let Students
+let Profesores
 
 const connectDatabase = async () => {
     try{
-        if(!Libros){
-            Libros = mongoose.model('Libros', require('../models/librosModel').schema);
+        if(!Students){
+            Students = mongoose.model('Students', require('../models/studentsModel').schema);
+        }
+
+        if(!Profesores){
+            Profesores = mongoose.model('Profesores', require('../models/profesoresModel').schema);
         }
 
         await mongoose.connect('mongodb+srv://sebasrojasm1:IjnnasA6Fb27gnqF@cluster0.ziozbk9.mongodb.net/')

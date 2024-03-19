@@ -6,17 +6,50 @@
     <title>Formulario registro estudiante</title>
 </head>
 <body>
-    <form action="http://localhost:4000/api/libros/create" method="post" style="display: flex; align-items: center; justify-content: center; flex-direction: column; font-size: 20px; font-weight: bold;">
-        <label for="nombre">Nombre del libro</label>
-        <input type="text" name="nombre" id="nombre">
+    <div style="display: flex; justify-content: space-evenly;">
+        <div>
+            <!-- PROFESORES -->
+            <form action="http://localhost:4000/api/profesores/create" method="post" style="display: flex; align-items: center; justify-content: center; flex-direction: column; font-size: 20px; font-weight: bold;">
 
-        <label for="genero">Genero literario</label>
-        <input type="text" name="genero" id="genero">
+                <h1 style="font-size: 25px; text-transform: uppercase;"> PROFESORES</h1>
 
-        <label for="referencia"># de referencia</label>
-        <input type="number" name="referencia" id="referencia">
+                <label for="nombres">Nombre del profesor</label>
+                <input type="text" name="nombres" id="nombres">
 
-        <input type="submit">
-    </form>
+                <label for="especialidad">Especialidad</label>
+                <input type="text" name="especialidad" id="especialidad">
+
+                <label for="email">Correo electronico</label>
+                <input type="email" name="email" id="email">
+
+                <input type="submit">
+            </form>
+        </div>
+        
+
+        <div>
+                        <!-- ESTUDIANTES -->
+        <form action="http://localhost:4000/api/students/create" method="post" style="display: flex; align-items: center; justify-content: center; flex-direction: column; font-size: 20px; font-weight: bold;">
+
+            <h1 style="font-size: 25px; text-transform: uppercase;"> ESTUDIANTES</h1>
+
+            <label for="nombre">Nombre del estudiante</label>
+            <input type="text" name="nombre" id="nombre">
+
+            <label for="edad">Edad</label>
+            <input type="number" name="edad" id="edad">
+
+            <label for="correo">Correo electronico</label>
+            <input type="email" name="correo" id="correo">
+
+            <label for="profesorId">ID del profesor asignado</label>
+            <input type="number" name="profesorId" id="profesorId">
+
+            <input type="submit">
+        </form>
+        </div>
+    </div>
+    
+</body>
 </body>
 </html>
