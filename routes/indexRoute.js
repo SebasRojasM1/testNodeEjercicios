@@ -16,10 +16,13 @@ router.get('/api/students/id/:_id', studentsController.getStudentById);
 
 
 /*Ruta: Actualizar el nombre de un estudiante */
-router.patch('/api/students/update/:nombre', studentsController.updateStudent);
+//router.patch('/api/students/update/:nombre', studentsController.updateStudent);
+
+/*Ruta: Actualizar el nombre de un estudiante */
+router.put('/api/students/update/:nombre', studentsController.updateStudentPut);
 
 /*Borrar un estudiante por su nombre */
-router.delete('/api/students/delete/:nombre', studentsController.deleteStudent);
+router.delete('/api/students/delete/:_id', studentsController.deleteStudent);
 
 
 
@@ -36,10 +39,13 @@ router.get('/api/profesores/id/:_id', profesoresController.getTeacherByID);
 
 
 /*Ruta: Actualizar el nombre de un estudiante */
-router.patch('/api/profesores/update/:nombre', profesoresController.updateTeacher);
+//router.patch('/api/profesores/update/:nombre', profesoresController.updateTeacher);
+
+/*Ruta: Actualizar el nombre de un estudiante */
+router.put('/api/profesores/update/:nombres', profesoresController.updateTeacherPut);
 
 /*Borrar un estudiante por su nombre */
-router.delete('/api/profesores/delete/:nombre', profesoresController.deleteTeacher);
+router.delete('/api/profesores/delete/:_id', profesoresController.deleteTeacher);
 
 
 module.exports = router;
