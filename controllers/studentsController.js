@@ -47,6 +47,26 @@ const studentsController = {
     },
 
 
+    updateStudentPut: async(req, res) => {
+        try {
+            const { nombre } = req.params;
+            //const { nuevoNombre } = req.body; // Se espera que el nuevo nombre se envíe en el cuerpo de la solicitud
+
+        // Buscar y actualizar el estudiante
+        const updateStudent = await Students.findOneAndUpdate(
+            { nombre: nombre },
+            { nombre: "Andrea" }, 
+            { new: true } // Opción para devolver el documento actualizado
+        );
+
+        res.json(updateStudent);
+
+        } catch (error) {
+            console.error('Error al actualizar el usuario:', error);
+            res.status(500).json({ message: 'Internal Server Error' });  
+        }
+    },
+
 
     /*Eliminar un libro por su nombre */
     deleteStudent: async (req, res) => {

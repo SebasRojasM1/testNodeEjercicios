@@ -1,4 +1,4 @@
-const Profesores = require('../models/studentsModel');
+const Profesores = require('../models/profesoresModel');
 
 const profesoresController = {
     // Obtener todos los profesores
@@ -46,13 +46,34 @@ const profesoresController = {
         }
     },
 
+    
+    updateTeacherPut: async(req, res) => {
+        try {
+            const { nombres } = req.params;
+            //const { nuevoNombre } = req.body; // Se espera que el nuevo nombre se envíe en el cuerpo de la solicitud
+
+        // Buscar y actualizar el estudiante
+        const updateStudent = await Profesores.findOneAndUpdate(
+            { nombres: nombres },
+            { nombres: "Yandel" }, 
+            { new: true } // Opción para devolver el documento actualizado
+        );
+
+        res.json(updateStudent);
+
+        } catch (error) {
+            console.error('Error al actualizar el usuario:', error);
+            res.status(500).json({ message: 'Internal Server Error' });  
+        }
+    },
+
 
 
     /*Eliminar un libro por su nombre */
     deleteTeacher: async (req, res) => {
         try {
-            const {nombre} = req.params;;
-            const deleteTeacher = await Profesores.findOneAndDelete({nombre: nombre});
+            const {_id} = req.params;;
+            const deleteTeacher = await Profesores.findOneAndDelete({_id: _id});
             res.json(deleteTeacher);
         } catch (error) {
             console.error('Error al actualizar el usuario:', error);
