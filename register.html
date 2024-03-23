@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+</head>
+<body>
+    <form action="http://localhost:4000/register" method="post" style="display: flex; align-items: center; justify-content: center; flex-direction: column; font-size: 20px; font-weight: bold;">
+
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre">
+
+        <label for="edad">Edad</label>
+        <input type="number" name="edad" id="edad">
+
+        <label for="tipo_usuario">Tipo de usuario</label>
+        <select name="tipo_usuario" id="tipo_usuario">
+            <option>Seleccionar tipo de usuario</option>
+            <option value="clientes">Clientes</option>
+            <option value="administrador">Administrador</option>
+        </select>
+        
+        <label for="email">Correo electronico</label>
+        <input type="email" name="email" id="email">
+
+        <label for="password">Contraseña</label>
+        <input type="number" name="password" id="password">
+
+
+
+
+
+
+        <input type="submit">
+    </form>
+</body>
+</html>
